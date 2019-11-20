@@ -22,6 +22,7 @@ routes.put('/users', authMiddleware, UserController.update);
 routes.post('/sessions', SessionController.store);
 
 routes.get('/providers', authMiddleware, ProviderController.index);
+routes.get('/providers/:id/available', authMiddleware, P);
 
 routes.post('/files', authMiddleware, upload.single('file'), FileController.store);
 
