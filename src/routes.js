@@ -24,5 +24,7 @@ routes.get('/providers', authMiddleware, ProviderController.index);
 routes.post('/files', authMiddleware, upload.single('file'), FileController.store);
 
 routes.post('/appointments', authMiddleware, AppointmentController.store);
+routes.get('/appointments', authMiddleware, AppointmentController.index);
+
 
 export default routes;
