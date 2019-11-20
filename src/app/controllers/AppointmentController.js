@@ -15,15 +15,12 @@ import CancellationMail from '../jobs/CancellationMail';
 class AppointmentController {
   async index(req, res) {
     const { page = 1 } = req.query;
-
-    console.log(page);
-
     const appointments = await Appointment.findAll({
       where: {
         user_id: req.user_id,
         canceled_at: null,
       },
-      attributes: ['id', 'date'],
+      attributes: ['id', 'date', 'past'],
       order: ['date'],
       limit: 20,
       offset: (page - 1) * 20,
